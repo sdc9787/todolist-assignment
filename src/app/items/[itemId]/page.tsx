@@ -46,7 +46,7 @@ export default function ItemDetail() {
         setLoading(true);
         router.push("/");
       });
-  }, [itemId, updateCheckListItem, alertBox, router, setLoading]);
+  }, [itemId]);
 
   // textarea 자동 높이 조절
   const textareaRef = useRef<HTMLTextAreaElement>(null);
