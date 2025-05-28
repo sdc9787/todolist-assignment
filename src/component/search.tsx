@@ -24,9 +24,13 @@ export default function Search() {
   const checkListEmpty = checkListData.filter((item) => item.isCompleted == false).length;
 
   const addItem = () => {
-    setLoading(false);
+    // 입력 필드가 비어있으면 아무 작업도 하지 않음
     const value = inputRef.current?.value.trim();
-    if (!value) return;
+    if (!value) {
+      alertBox("할일을 입력해주세요");
+      return;
+    }
+    setLoading(false);
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/items`, { name: value })
       .then((response) => {

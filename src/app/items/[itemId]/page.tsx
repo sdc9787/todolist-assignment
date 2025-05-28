@@ -59,6 +59,15 @@ export default function ItemDetail() {
     }
   };
 
+  // memo가 바뀔 때마다 textarea 높이 자동 조절
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+  }, [memo]);
+
   // 이미지 업로드 핸들러
   const fileInputRef = useRef<HTMLInputElement>(null);
   const handleImageClick = () => {
