@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+# 📝 Todo List App
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+할 일을 효율적으로 관리할 수 있는 웹 애플리케이션입니다. 사용자는 할 일을 추가하고, 완료 여부를 토글하며, 상세 페이지에서 메모와 이미지를 첨부해 편집할 수 있습니다. 반응형 웹으로 다양한 디바이스에서 사용할 수 있으며, 코드에는 주석과 문서화를 통해 유지보수가 용이하도록 설계했습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🏠 할 일 목록 페이지 (`/`)
 
-To learn more about Next.js, take a look at the following resources:
+### 📄 목록 조회
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- '로고' 버튼 클릭 시 `/` 페이지로 새로고침
+- 진행 중인 할 일과 완료된 할 일을 구분하여 목록 표시
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ➕ 할 일 추가
 
-## Deploy on Vercel
+- 상단 입력창에 텍스트 입력 후 `추가하기` 버튼 클릭 또는 엔터 입력 시 할 일 생성
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ✅ 할 일 완료
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 진행 중 항목의 왼쪽 버튼 클릭 시 체크 표시되며 완료 상태로 전환
+- 완료된 항목의 왼쪽 버튼 클릭 시 체크 해제되며 다시 진행 중 상태로 변경
+
+---
+
+## 🔍 할 일 상세 페이지 (`/items/{itemId}`)
+
+### ✏️ 할 일 수정
+
+- 할 일 항목 클릭 시 상세 페이지로 이동하여 수정 가능
+- 항목 이름 수정
+- 할 일 상태(진행/완료) 수정
+- 메모 추가
+- 이미지 첨부 (최대 1개)
+  - 파일 이름은 영어로만 구성
+  - 파일 크기 5MB 이하
+- `수정 완료` 클릭 시 수정 내용 저장 후 목록 페이지로 이동
+
+### 🗑️ 할 일 삭제
+
+- `삭제하기` 버튼 클릭 시 해당 항목 삭제 후 목록 페이지로 이동
+
+```
