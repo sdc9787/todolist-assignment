@@ -15,10 +15,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head>
-        <link rel="icon" href="/img/favicon.svg" />
-        <link rel="stylesheet" type="text/css" href="/XEIcon/xeicon.min.css" />
-      </head>
       <body className="relative w-dvw h-dvh flex flex-col justify-start items-center">
         <Gnb></Gnb>
         {children}

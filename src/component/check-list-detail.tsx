@@ -35,7 +35,7 @@ export default function CheckListItemDetail() {
         setLoading(true);
         alertBox("업데이트 되었습니다");
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(true);
         alertBox("업데이트에 실패했습니다");
       });

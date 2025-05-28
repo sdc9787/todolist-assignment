@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { useTodoStore } from "@/app/store/checkListStore";
 import axios from "axios";
 import Image from "next/image";
@@ -42,7 +42,7 @@ export default function CheckList() {
         setCheckListData(response.data);
         setLoading(true);
       })
-      .catch((error) => {
+      .catch(() => {
         alertBox("리스트를 불러오지 못했습니다");
         setLoading(true);
       });
@@ -72,13 +72,13 @@ export default function CheckList() {
             setLoading(true);
             alertBox(checkListItem.isCompleted ? "TODO로 이동했습니다" : "DONE로 이동했습니다");
           })
-          .catch((error) => {
+          .catch(() => {
             //todo 업데이트 실패 modal 띄우기
             setLoading(true);
             alertBox("업데이트에 실패했습니다");
           });
       })
-      .catch((error) => {
+      .catch(() => {
         //todo 아이템 상세 정보 가져오기 실패 modal 띄우기
         setLoading(true);
         alertBox("Detail 정보를 가져오지 못했습니다");

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { CheckItem, CheckListDetail } from "../type/type";
+import { CheckListDetail } from "../type/type";
 
 interface TodoItemStoreState {
   checkListData: CheckListDetail;

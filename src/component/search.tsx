@@ -36,7 +36,7 @@ export default function Search() {
         setLoading(true);
         alertBox("할 일이 추가되었습니다");
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(true);
         alertBox("할 일을 추가하지 못했습니다");
       });

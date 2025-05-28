@@ -28,7 +28,7 @@ export default function ItemDetail() {
 
   useEffect(() => {
     setLoading(false);
-  }, []);
+  }, [setLoading]);
 
   // 상세 정보 불러오기
   useEffect(() => {
@@ -41,12 +41,12 @@ export default function ItemDetail() {
         setImageUrl(response.data.imageUrl || null);
         setLoading(true);
       })
-      .catch((error) => {
+      .catch(() => {
         alertBox("목록을 불러오지 못했습니다");
         setLoading(true);
         router.push("/");
       });
-  }, [itemId]);
+  }, [itemId, updateCheckListItem, alertBox, router, setLoading]);
 
   // textarea 자동 높이 조절
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -103,6 +103,7 @@ export default function ItemDetail() {
       alertBox("수정이 완료되었습니다");
       router.push("/");
     } catch (error) {
+      console.error("Error updating item:", error);
       setLoading(true);
       alertBox("수정에 실패했습니다");
     }
@@ -119,7 +120,7 @@ export default function ItemDetail() {
         alertBox("삭제가 완료되었습니다");
         router.push("/");
       })
-      .catch((error) => {
+      .catch(() => {
         // 삭제 실패 시 에러 처리
         setLoading(true);
         alertBox("삭제에 실패했습니다");
